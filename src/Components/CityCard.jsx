@@ -92,9 +92,9 @@ const CityCard = ({ city, lat, lon }) => {
       const today = new Date().toISOString().split('T')[0];
       const recentSummaries = historicalData.slice(-alertDays);
       const exceededDays = recentSummaries.filter(
-        (summary) => summary._id.date === today && summary.avgTemp < alertTemp
+        (summary) => summary._id.date === today && summary.avgTemp > alertTemp
       ).length;
-      return exceededDays >= alertDays;
+      return exceededDays <= alertDays;
     }
     return false;
   };
