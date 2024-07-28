@@ -50,7 +50,8 @@ const CityCard = ({ city, lat, lon }) => {
     try {
       const response = await axios.get(SUMMARY_API_URL);
       const data = response.data;
-      const citySummary = data.find((item) => item._id.city === city);
+      const newdata=data.reverse();
+      const citySummary = newdata.find((item) => item._id.city === city);
       setSummaryData(citySummary);
     } catch (error) {
       console.error('Error fetching summary data:', error);
